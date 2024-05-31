@@ -1,6 +1,6 @@
 # Appliance Energy Prediction
 
-Predicted the energy consumed by appliances using custom-coded Machine Learning models and Algorithms like PCA, Neural Networks, Lasso, Ridge, and Linear Regression from scratch in Python with 80% confidence.
+Predict the energy consumed by appliances using custom-coded Machine Learning models and Algorithms like PCA, Neural Networks, Lasso, Ridge, and Linear Regression.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -42,6 +42,7 @@ The Appliances Energy Prediction dataset includes variables related to home appl
 ## Abstract
 Appliance energy prediction is critical in energy management systems for efficient energy utilization, resulting in cost savings using Machine Learning Algorithms (Linear Regression, Ridge Regression, Lasso Regression, and Neural Networks). It involves predicting the energy consumption of appliances based on various input features such as temperature, humidity, time of day, and past usage patterns. Appliance energy prediction focuses on reducing energy consumption, greenhouse gas emissions, and overall energy costs.
 
+
 ## Problem Statement
 The problem of appliance energy prediction arises due to the growing need to reduce household energy consumption. Machine learning algorithms offer a promising approach to address this problem and the ability to identify relevant features and select appropriate algorithms.
 
@@ -50,7 +51,7 @@ Appliance energy prediction aims to develop machine learning models that accurat
 
 ## Data Description
 The dataset was collected from the UCI Machine Learning Repository.
-Link for the dataset: [Appliance Energy Prediction Dataset](https://link-to-dataset)
+Link for the dataset: [Appliance Energy Prediction Dataset](https://archive.ics.uci.edu/dataset/374/appliances+energy+prediction)
 - Number of Instances = 19,735
 - Number of Attributes = 29
 
@@ -58,7 +59,7 @@ Link for the dataset: [Appliance Energy Prediction Dataset](https://link-to-data
 
 ### Null Value Check
 Checking for null values in the dataset for all the variables.
-The dataset had no null values. Hence no treating or imputation was required.
+The dataset had no null values. Hence no treatment or imputation was required.
 
 ### Target Variable
 Appliances are the target variable in our dataset. The variable we are attempting to estimate or predict using data from other variables in the dataset is the target variable in machine learning. It goes by the names dependent variable, the response variable, and the outcome variable.
@@ -67,7 +68,6 @@ The appliance variable gives us the energy consumption of a household in Wh.
 ### Outlier Detection
 #### Outlier Detection on Target Variable (DBSCAN)
 Data points closely spaced together are grouped using the clustering algorithm DBSCAN, which also finds isolated noise spots. A radius surrounds each data point, and the number of additional data points within that radius is counted. Core points are those when the number of points inside the radius is greater than or equal to a predetermined threshold. Noise points are neither core nor border points nor fall within any core point's radius.
-
 The points in yellow were flagged as outliers by the DBSCAN algorithm. These points were plotted in a scatterplot for the Appliance vs. T1 variable. The outliers were not removed as there was no conclusive evidence that these data points were erroneous. Even though outliers can occasionally be the consequence of mistakes, they can occasionally hold vital information and offer insights into the underlying patterns and relationships in the data. Forty-three data points were flagged as outliers from the DBSCAN algorithm. These values with high target variables or outliers could be electrical surges and cannot be removed from the data.
 
 #### Outlier Detection on Input Variables (Local Outlier Factor)
@@ -94,7 +94,7 @@ Recursive Feature Elimination (RFE) is a robust feature selection algorithm to s
 Data normalization is the process of converting numerical data into a standard format to eliminate repetition and inconsistencies in the data, known as data normalization. It was previously observed that the data for the target variable is right skewed. The skewness can be reduced by applying log normalization.
 
 ### Encoding
-`get_dummies` creates a new dataframe with dummy columns from 'Monday' to 'Sunday', resulting in a binary indicator showing whether the day of the week is present.
+`get_dummies` create a new dataframe with dummy columns from 'Monday' to 'Sunday', resulting in a binary indicator showing whether the day of the week is present.
 
 ### Test Train Split
 The dataset is split into 3 parts: train, test, and validate with sizes 60%, 20%, and 20%, respectively.
@@ -118,11 +118,11 @@ Lasso regression, sometimes referred to as the least absolute shrinkage and sele
 
 ### Neural Network
 Neural networks are implemented with different layers, activation functions, and loss functions.
-Implemented a 4 layer model.
+Implemented a 4-layer model.
 1. First layer with the `ReLu` activation function.
 2. The second layer is a dropout layer with a dropout of 20%.
 3. Dense layer with `ReLu`.
-4. Final layer is a dense layer with  `linear` activation function and `adam` optimizer
+4. The final layer is a dense layer with  a `linear` activation function and `adam` optimizer
 
 ## Bias-Variance Tradeoff
 Bias-variance tradeoff describes the tradeoff between a model's capacity to fit the training data and its capacity to generalize to new, unobserved data.
@@ -166,3 +166,6 @@ Concluding remarks about the project and model performance.
 - Exploring this as a Time Series problem to forecast energy usage based on prior trends.
 - Models like ARIMA or Time Series Decomposition Algorithms could be used to predict energy Usage.
 
+
+## Credit
+@Thomas-George-T
